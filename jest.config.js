@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/readily-web'],
+  projects: ['<rootDir>/apps/readily-web', '<rootDir>/apps/api'],
 };
