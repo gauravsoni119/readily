@@ -1,5 +1,18 @@
-import { Document } from 'mongoose';
+import { Book } from '@readily/data';
+import { Document, Model } from 'mongoose';
+
+export interface ShelfAttrs {
+  title: string;
+  description: string;
+  books: Book[];
+}
 
 export interface Shelf extends Document {
-  readonly name: string;
+  title: string;
+  description: string;
+  books: Book[];
+}
+
+export interface ShelfModel extends Model<Shelf> {
+  build(attrs: ShelfAttrs): Shelf;
 }
