@@ -1,0 +1,36 @@
+@use 'sass:map';
+@use '~@angular/material' as mat;
+$rating-button-size: 20px !default;
+$rating-button-width: 20px !default;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $accent-palette: map.get($color-config, 'accent');
+
+  .readily-rating {
+    display: flex;
+    align-items: baseline;
+  }
+
+  .mat-icon-button.readily-rating__button {
+    height: $rating-button-size;
+    width: $rating-button-size;
+    line-height: $rating-button-size;
+  }
+}
+
+@mixin typography($theme) {
+  $typography-config: mat.define-typography-config();
+
+  .readily-rating__icon {
+    font-size: mat.font-size($typography-config, 'subheading-2');
+  }
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+  @include typography($theme);
+}

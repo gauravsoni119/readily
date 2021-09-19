@@ -1,0 +1,13 @@
+<div class="readily-rating">
+  <ng-container *ngFor="let ratingContext of ratingContexts">
+    <button class="readily-rating__button" mat-icon-button color="accent" disableRipple>
+      <ng-container [ngSwitch]="ratingContext.fill">
+        <mat-icon class="readily-rating__icon" *ngSwitchCase="100">star</mat-icon>
+        <mat-icon class="readily-rating__icon" *ngSwitchCase="50">star_half</mat-icon>
+        <mat-icon class="readily-rating__icon" *ngSwitchCase="0">star_outline</mat-icon>
+        <mat-icon class="readily-rating__icon" *ngSwitchDefault>star</mat-icon>
+      </ng-container>
+    </button>
+  </ng-container>
+  <span class="mat-caption ms-2">{{rate}}</span>
+</div>

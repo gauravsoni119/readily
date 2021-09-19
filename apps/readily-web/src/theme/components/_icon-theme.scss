@@ -1,0 +1,15 @@
+@use 'sass:map';
+@use '../settings/global' as global;
+@use '~@angular/material' as mat;
+
+$readily-icon-size: global.$spacer * 2 !default;
+
+@mixin theme($theme) {
+
+  .mat-icon.readily-icon {
+    &--md {
+      width: $readily-icon-size;
+      height: $readily-icon-size;
+    }
+  }
+}

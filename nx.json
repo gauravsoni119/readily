@@ -26,10 +26,31 @@
       "tags": [],
       "implicitDependencies": ["readily-web"]
     },
-    "api": {
+    "data": {
       "tags": []
     },
-    "data": {
+    "shell-feature": {
+      "tags": []
+    },
+    "shell-layout": {
+      "tags": []
+    },
+    "shared-ui": {
+      "tags": []
+    },
+    "dashboard-feature": {
+      "tags": []
+    },
+    "dashboard-ui": {
+      "tags": []
+    },
+    "shared-webworkers": {
+      "tags": []
+    },
+    "shared-data-access-store": {
+      "tags": []
+    },
+    "shared-data-access-models": {
       "tags": []
     }
   }

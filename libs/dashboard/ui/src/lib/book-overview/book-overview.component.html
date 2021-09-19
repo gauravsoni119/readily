@@ -1,0 +1,26 @@
+<mat-card class="d-flex readily-book-overview p-0">
+  <img class="readily-book-overview__img" src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+<mat-card-content class="readily-book-overview__content py-3 ps-3 mb-0 d-flex">
+  <div class="me-auto">
+    <h3 class="mat-body-2 mb-0">Mothers: Stories</h3>
+    <div class="mb-1">
+      <span class="mat-caption">by Chris Power</span>
+    </div>
+    <div class="d-flex">
+      <span class="mat-caption me-3">87 reviews</span>
+      <span class="mat-caption readily-book-overview__rating-count d-inline-flex align-items-center me-4">
+        <span class="readily-book-overview__bullet me-2"></span>
+        <span>449 ratings</span>
+      </span>
+      <span class="readily-book-overview__ratings">
+        <readily-rating [rate]="3.62"></readily-rating>
+      </span>
+    </div>
+  </div>
+  <div class="align-self-center">
+    <button mat-icon-button color="primary">
+      <mat-icon aria-label="show more">chevron_right</mat-icon>
+    </button>
+  </div>
+</mat-card-content>
+</mat-card>

@@ -1,1 +1,60 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+Color Palate
+#95C2C2
+#8FB6B6
+#E8B0A0
+#295260
+#6AA4A4
+#D38A78
+#D6493F
+#F9F9F8
+primary #58b8b7
+accent #f08059
+*/
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+
+@use '~@angular/material' as mat;
+@use './theme/components' as components;
+@use './theme/settings/colors' as colors;
+@import './theme/theme';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+$border-radius: 20px;
+@include mat.core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$readily-web-primary: mat.define-palette(colors.$mat-primary, 500);
+$readily-web-accent: mat.define-palette(colors.$mat-accent, 500, A100, A400);
+
+// The warn palette is optional (defaults to red).
+$readily-web-warn: mat.define-palette(mat.$red-palette);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$readily-web-theme: mat.define-light-theme((
+  color: (
+    primary: $readily-web-primary,
+    accent: $readily-web-accent,
+    warn: $readily-web-warn,
+  )
+));
+@include mat.all-component-themes($readily-web-theme);
+@include components.toolbar-theme($readily-web-theme);
+@include components.rating-theme($readily-web-theme);
+@include components.icon-theme($readily-web-theme);
+@include components.book-overview-theme();
+
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: colors.$body-background;
+}

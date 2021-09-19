@@ -1,0 +1,50 @@
+<mat-card class="readily-average-reading-time h-100">
+  <mat-card-content>
+    <div class="row mb-4">
+      <div class="col-md-4 pe-0">
+        <h2 class="mb-5" i18n="Average Time heading| Heading displayed for Average Time card">Average Time</h2>
+        <div>
+          <p class="mat-caption m-0" i18n="Per day text| Sub heading for hours spent per day">Per Day</p>
+          <div class="d-flex align-items-baseline">
+            <h2 class="me-1">2</h2>
+            <span i18n="Hours text| hours text displayed along with number of hours">hours</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8 mt-n2">
+        <readily-vertical-bar-chart-normalized
+          [showLegend]="false"
+          [showXAxis]="false"
+          [showXAxisLabel]="false"
+          [showYAxis]="false"
+          [showYAxisLabel]="false"
+          [series]="multi"
+        ></readily-vertical-bar-chart-normalized>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="d-flex align-items-center">
+          <div class="readily-icon readily-bg-accent rounded-circle p-3 me-3">
+            <mat-icon class="readily-icon readily-icon--md" color="accent" svgIcon="books-queue"></mat-icon>
+          </div>
+          <div>
+            <span class="mat-caption" i18n="Read books text| Sub heading for total books read">Read Books</span>
+            <h2 class="d-block m-0">35</h2>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex align-items-center">
+          <div class="readily-icon readily-bg-accent rounded-circle p-3 me-3">
+            <mat-icon class="readily-icon readily-icon--md" svgIcon="pages" color="accent"></mat-icon>
+          </div>
+          <div>
+            <span class="mat-caption" i18n="Book Pages text| Sub heading for total pages read">Book Pages</span>
+            <h2 class="d-block m-0">7653</h2>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

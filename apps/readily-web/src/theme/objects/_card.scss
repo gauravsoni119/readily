@@ -1,0 +1,11 @@
+@use '../settings/colors' as colors;
+@use '../settings/global' as global;
+
+.mat-card {
+  border-radius: global.$card-border-radius !important;
+  border: 1px solid colors.$card-border-color;
+
+  &:not([class*=mat-elevation-z]) {
+    box-shadow: none !important;
+  }
+}
