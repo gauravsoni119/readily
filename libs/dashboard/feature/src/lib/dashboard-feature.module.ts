@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
+import { PortalModule } from '@angular/cdk/portal';
 import { DashboardUiModule } from '@readily/dashboard/ui';
 import { DashboardComponent } from './dashboard.component';
 
 const uiModules = [
   MatListModule,
   MatButtonModule,
+  PortalModule,
   DashboardUiModule,
 ];
 

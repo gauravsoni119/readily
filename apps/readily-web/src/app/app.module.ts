@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ShellFeatureModule } from '@readily/shell/feature';
 import { AppComponent } from './app.component';
-import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [AppComponent],
@@ -13,7 +12,6 @@ import { StoreModule } from '@ngrx/store';
     HttpClientModule,
     BrowserAnimationsModule,
     ShellFeatureModule,
-    StoreModule.forRoot({}, {})
   ],
   providers: [],
   bootstrap: [AppComponent],
