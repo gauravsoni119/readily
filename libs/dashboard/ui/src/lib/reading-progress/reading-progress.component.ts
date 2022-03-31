@@ -1,4 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Book } from '@readily/shared/data-access/models';
 
 @Component({
   selector: 'readily-reading-progress',
@@ -7,6 +8,8 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ReadingProgressComponent {
+
+  @Input() books: Book[] = [];
 
   @Input() readingList: any[] = [
     { title: 'The Little Prince', progress: 64 },

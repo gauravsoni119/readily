@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatIconRegistry } from '@angular/material/icon';
 
@@ -10,104 +10,18 @@ import { MatIconRegistry } from '@angular/material/icon';
 })
 export class AverageReadingTimeComponent {
 
-  multi = [
-    {
-      "name": "Monday",
-      "series": [
-        {
-          "name": "2010",
-          "value": 8
-        },
-        {
-          "name": "2011",
-          "value": 24
-        }
-      ]
-    },
-
-    {
-      "name": "Tuesday",
-      "series": [
-        {
-          "name": "2010",
-          "value": 24
-        },
-        {
-          "name": "2011",
-          "value": 24
-        }
-      ]
-    },
-    {
-      "name": "Wednesday",
-      "series": [
-        {
-          "name": "2010",
-          "value": 14
-        },
-        {
-          "name": "2011",
-          "value": 24
-        }
-      ]
-    },
-    {
-      "name": "Thursday",
-      "series": [
-        {
-          "name": "2010",
-          "value": 20
-        },
-        {
-          "name": "2011",
-          "value": 24
-        }
-      ]
-    },
-    {
-      "name": "Friday",
-      "series": [
-        {
-          "name": "2010",
-          "value": 6
-        },
-        {
-          "name": "2011",
-          "value": 24
-        }
-      ]
-    },
-    {
-      "name": "Saturday",
-      "series": [
-        {
-          "name": "2010",
-          "value": 7
-        },
-        {
-          "name": "2011",
-          "value": 24
-        }
-      ]
-    },
-    {
-      "name": "Sunday",
-      "series": [
-        {
-          "name": "2010",
-          "value": 12
-        },
-        {
-          "name": "2011",
-          "value": 24
-        }
-      ]
-    }
-  ];
+  @Input() readBooks = 0;
+  @Input() totalPagesRead = 0;
+  @Input() avgPagesRead = 0;
+  @Input() readBookSeries: { name: string, value: number }[] = [];
 
   constructor(readonly iconRegistry: MatIconRegistry, readonly domSanitizer: DomSanitizer) {
     iconRegistry.addSvgIcon('books-queue', domSanitizer.bypassSecurityTrustResourceUrl('/assets/dashboard/ui/img/books-queue.svg'));
     iconRegistry.addSvgIcon('pages', domSanitizer.bypassSecurityTrustResourceUrl('/assets/dashboard/ui/img/pages.svg'));
+  }
+
+  tooltipText(series: { data: { label: string, value: unknown } }) {
+    return `${series.data.label} ${series.data.value} book(s)`;
   }
 
 }

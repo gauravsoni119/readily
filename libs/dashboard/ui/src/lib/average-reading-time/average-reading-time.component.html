@@ -6,20 +6,21 @@
         <div>
           <p class="mat-caption m-0" i18n="Per day text| Sub heading for hours spent per day">Per Day</p>
           <div class="d-flex align-items-baseline">
-            <h2 class="me-1">2</h2>
-            <span i18n="Hours text| hours text displayed along with number of hours">hours</span>
+            <h2 class="me-1">{{avgPagesRead}}</h2>
+            <span i18n="Hours text| hours text displayed along with number of hours">pages</span>
           </div>
         </div>
       </div>
       <div class="col-md-8 mt-n2">
-        <readily-vertical-bar-chart-normalized
+        <readily-doughnut-chart
           [showLegend]="false"
           [showXAxis]="false"
           [showXAxisLabel]="false"
           [showYAxis]="false"
           [showYAxisLabel]="false"
-          [series]="multi"
-        ></readily-vertical-bar-chart-normalized>
+          [series]="readBookSeries"
+          [tooltipText]="tooltipText"
+        ></readily-doughnut-chart>
       </div>
     </div>
     <div class="row">
@@ -30,7 +31,7 @@
           </div>
           <div>
             <span class="mat-caption" i18n="Read books text| Sub heading for total books read">Read Books</span>
-            <h2 class="d-block m-0">35</h2>
+            <h2 class="d-block m-0">{{readBooks}}</h2>
           </div>
         </div>
       </div>
@@ -40,8 +41,8 @@
             <mat-icon class="readily-icon readily-icon--md" svgIcon="pages" color="accent"></mat-icon>
           </div>
           <div>
-            <span class="mat-caption" i18n="Book Pages text| Sub heading for total pages read">Book Pages</span>
-            <h2 class="d-block m-0">7653</h2>
+            <span class="mat-caption" i18n="Book Pages text| Sub heading for total pages read">Read Pages</span>
+            <h2 class="d-block m-0">{{totalPagesRead}}</h2>
           </div>
         </div>
       </div>

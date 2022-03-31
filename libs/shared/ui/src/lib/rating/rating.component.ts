@@ -14,13 +14,13 @@ export class RatingComponent implements OnInit {
 
   @Input() max = 5;
 
-  @Input() rate = 0;
+  @Input() rate: number | string = 0;
 
   ratingContexts: RatingContext[] = [];
 
   ngOnInit(): void {
     this.ratingContexts = Array.from({ length: this.max }, (v, k) => ({ fill: 0, index: k }));
-    this._updateState(this.rate);
+    this._updateState(+this.rate);
   }
 
   private _updateState(nextValue: number) {

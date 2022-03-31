@@ -1,31 +1,32 @@
-<section>
-  <input #file type="file" name="file" id="file" (change)="readFile()">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="d-flex justify-content-between align-items-center">
-        <h2 i18n="Dashboard Title| Title display books for you text">Books for You</h2>
-        <a mat-button color="primary">View All</a>
+<ng-container *ngIf="(vm$ |async) as vm">
+  <ng-container *ngIf="vm.all.length; else fileTemplate">
+    <section>
+      <div class="row mb-5">
+        <div class="col-md-8">
+          <readily-books-to-read [books]="vm.shelves.exclusiveShelves.toRead.books"></readily-books-to-read>
+        </div>
+        <div class="col-md-4 mt-6">
+          <readily-premium-card></readily-premium-card>
+        </div>
       </div>
-    </div>
-  </div>
-  <div class="row mb-5">
-    <div class="col-md-8">
-      <ul class="readily-recommended-books p-0 m-0">
-        <li [class.mb-3]="!last" *ngFor="let book of [1,2,3]; let last=last">
-          <readily-book-overview></readily-book-overview>
-        </li>
-      </ul>
-    </div>
-    <div class="col-md-4">
-      <readily-premium-card></readily-premium-card>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <readily-reading-progress></readily-reading-progress>
-    </div>
-    <div class="col-md-6">
-      <readily-average-reading-time></readily-average-reading-time>
-    </div>
-  </div>
-</section>
+      <div class="row">
+        <div class="col-md-6">
+          <readily-reading-progress [books]="vm.shelves.exclusiveShelves.currentlyReading.books"></readily-reading-progress>
+        </div>
+        <div class="col-md-6">
+          <readily-average-reading-time
+            [readBooks]="vm.shelves.exclusiveShelves.read.totalCount"
+            [totalPagesRead]="vm.totalPagesRead"
+            [avgPagesRead]="vm.avgPageReading"
+            [readBookSeries]="vm.readBookSeries"
+            >
+          </readily-average-reading-time>
+        </div>
+      </div>
+    </section>
+  </ng-container>
+</ng-container>
+
+<ng-template #fileTemplate>
+  <input #file type="file" name="file" id="file" (change)="readFile($event)">
+</ng-template>

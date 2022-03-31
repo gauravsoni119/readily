@@ -1,6 +1,6 @@
 @use 'sass:map';
 @use '../settings/global' as global;
-@use '~@angular/material' as mat;
+@use '@angular/material' as mat;
 
 $readily-icon-size: global.$spacer * 2 !default;
 

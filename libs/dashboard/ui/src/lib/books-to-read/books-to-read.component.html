@@ -1,0 +1,13 @@
+<div>
+  <div class="d-flex justify-content-between align-items-center">
+    <h2 i18n="Dashboard Title| Title display books for you text">
+      Books to read
+    </h2>
+    <a mat-button color="primary">View All</a>
+  </div>
+  <ul class="readily-recommended-books p-0 m-0">
+    <li [class.mb-3]="!last" *ngFor="let book of books | slice: 0: 3; let last = last">
+      <readily-book-overview [book]="book"></readily-book-overview>
+    </li>
+  </ul>
+</div>

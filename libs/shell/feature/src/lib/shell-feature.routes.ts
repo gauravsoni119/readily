@@ -7,10 +7,11 @@ export const shellFeatureRoutes: Route[] = [
     component: LayoutComponent,
     children: [
       {
-        path: '',
+        path: 'dashboard',
         loadChildren: async () =>
           (await import('@readily/dashboard/feature')).DashboardFeatureModule,
       },
+      { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
     ],
   },
 ];

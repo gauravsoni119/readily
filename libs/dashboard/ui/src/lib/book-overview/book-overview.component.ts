@@ -1,4 +1,5 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy, Input } from '@angular/core';
+import { Book } from '@readily/shared/data-access/models';
 
 @Component({
   selector: 'readily-book-overview',
@@ -7,6 +8,8 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class BookOverviewComponent {
+
+  @Input() book!: Book;
 
 
 }

@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { RatingComponent } from './rating/rating.component';
 import { VerticalBarChartNormalizedComponent } from './vertical-bar-chart-normalized/vertical-bar-chart-normalized.component';
+import { DoughnutChartComponent } from './doughnut-chart/doughnut-chart.component';
 
 const uiModules = [
   MatIconModule,
@@ -15,6 +16,7 @@ const uiModules = [
 const components = [
   RatingComponent,
   VerticalBarChartNormalizedComponent,
+  DoughnutChartComponent,
 ];
 
 @NgModule({
@@ -22,4 +24,4 @@ const components = [
   declarations: [...components],
   exports: [...components],
 })
-export class UiModule {}
+export class UiModule { }

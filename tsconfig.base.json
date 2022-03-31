@@ -17,9 +17,11 @@
     "paths": {
       "@readily/dashboard/feature": ["libs/dashboard/feature/src/index.ts"],
       "@readily/dashboard/ui": ["libs/dashboard/ui/src/index.ts"],
-      "@readily/data": ["libs/data/src/index.ts"],
       "@readily/shared/data-access/models": [
         "libs/shared/data-access/models/src/index.ts"
+      ],
+      "@readily/shared/data-access/store": [
+        "libs/shared/data-access/store/src/index.ts"
       ],
       "@readily/shared/ui": ["libs/shared/ui/src/index.ts"],
       "@readily/shared/webworkers": ["libs/shared/webworkers/src/index.ts"],

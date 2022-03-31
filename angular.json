@@ -55,29 +55,6 @@
       },
       "tags": []
     },
-    "data": {
-      "root": "libs/data",
-      "sourceRoot": "libs/data/src",
-      "projectType": "library",
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/data/**/*.ts"]
-          },
-          "outputs": ["{options.outputFile}"]
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/data"],
-          "options": {
-            "jestConfig": "libs/data/jest.config.js",
-            "passWithNoTests": true
-          }
-        }
-      },
-      "tags": []
-    },
     "readily-web": {
       "projectType": "application",
       "root": "apps/readily-web",
@@ -233,6 +210,32 @@
             ]
           },
           "outputs": ["{options.outputFile}"]
+        }
+      },
+      "tags": []
+    },
+    "shared-data-access-store": {
+      "projectType": "library",
+      "root": "libs/shared/data-access/store",
+      "sourceRoot": "libs/shared/data-access/store/src",
+      "prefix": "readily",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/data-access/store"],
+          "options": {
+            "jestConfig": "libs/shared/data-access/store/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/shared/data-access/store/src/**/*.ts",
+              "libs/shared/data-access/store/src/**/*.html"
+            ]
+          }
         }
       },
       "tags": []

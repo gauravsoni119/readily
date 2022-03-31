@@ -1,14 +1,14 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core';
 import { Color, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
-  selector: 'readily-vertical-bar-chart-normalized',
-  templateUrl: './vertical-bar-chart-normalized.component.html',
-  styleUrls: ['./vertical-bar-chart-normalized.component.scss'],
+  selector: 'readily-doughnut-chart',
+  templateUrl: './doughnut-chart.component.html',
+  styleUrls: ['./doughnut-chart.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
+export class DoughnutChartComponent implements OnInit {
 
-export class VerticalBarChartNormalizedComponent {
 
   @Input() view!: [number, number];
 
@@ -21,11 +21,17 @@ export class VerticalBarChartNormalizedComponent {
   @Input() showYAxisLabel = true;
   @Input() yAxisLabel = 'Population';
   @Input() animations = true;
+  @Input() tooltipText!: (series: { data: { label: string, value: unknown } }) => string;
   @Input() series: unknown[] = [];
+
+  constructor() { }
+
+  ngOnInit(): void {
+  }
 
   colorScheme: Color = {
     name: 'test',
-    domain: ['#f08059', '#f8dcd2'],
+    domain: ['#f08059', '#f8dcd2', '#58b8b7'],
     selectable: false,
     group: ScaleType.Linear
   };
