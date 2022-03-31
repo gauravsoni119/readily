@@ -1,0 +1,10 @@
+@use '../settings/global' as global;
+$readily-book-overview-img-radius: global.$card-border-radius !default;
+
+@mixin theme() {
+  .readily-book-overview {
+    &__img {
+      border-radius: $readily-book-overview-img-radius 0 0 $readily-book-overview-img-radius;
+    }
+  }
+}

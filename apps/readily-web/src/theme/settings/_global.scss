@@ -1,0 +1,32 @@
+$label-margin-bottom: 0;
+$spacer: 1rem;
+$grid-gutter-width: $spacer * 2 !default;
+$enable-negative-margins: true;
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1600px
+);
+
+$container-max-widths: (
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1600px
+);
+$spacers: (
+  0: 0,
+  1: ($spacer * .25),
+  2: ($spacer * .5),
+  3: $spacer,
+  4: ($spacer * 1.5),
+  5: ($spacer * 2),
+  6: ($spacer * 3),
+  7: ($spacer * 5)
+);
+$card-border-radius: $spacer * 0.625 !default;
+
+@import "~bootstrap/scss/functions";
+@import "~bootstrap/scss/variables";

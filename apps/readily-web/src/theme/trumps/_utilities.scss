@@ -1,0 +1,13 @@
+@use '../settings/colors' as colors;
+@use 'sass:map';
+
+@import "~bootstrap/scss/helpers";
+@import "~bootstrap/scss/utilities/api";
+
+.readily-bg-primary {
+  background-color: rgba(map.get(colors.$mat-primary, 100), 0.5);
+}
+
+.readily-bg-accent {
+  background-color: rgba(map.get(colors.$mat-accent, 100), 0.5);
+}

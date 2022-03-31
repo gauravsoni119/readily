@@ -1,3 +1,5 @@
+const { getJestProjects } = require('@nrwl/jest');
+
 module.exports = {
   collectCoverage: true,
   coverageReporters: ['html', 'json', 'text', 'lcov'],
@@ -9,9 +11,5 @@ module.exports = {
       statements: 80,
     },
   },
-  projects: [
-    '<rootDir>/apps/readily-web',
-    '<rootDir>/apps/api',
-    '<rootDir>/libs/data',
-  ],
+  projects: getJestProjects(),
 };

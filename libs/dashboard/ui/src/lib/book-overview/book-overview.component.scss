@@ -1,0 +1,21 @@
+$readily-book-overview-img-width: 20%;
+$readily-book-overview-content-width: 80%;
+$readily-book-overview-rating-count-size: 5px;
+$readily-book-overview-rating-count-radius: 50%;
+
+.readily-book-overview {
+  &__img {
+    width: $readily-book-overview-img-width;
+  }
+  &__content {
+    width: $readily-book-overview-content-width;
+  }
+  &__bullet {
+    content: '';
+    height: $readily-book-overview-rating-count-size;
+    width: $readily-book-overview-rating-count-size;
+    border-radius: $readily-book-overview-rating-count-radius;
+    display: inline-block;
+    background-color: currentColor;
+  }
+}

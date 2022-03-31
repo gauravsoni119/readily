@@ -1,0 +1,50 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer
+    class="readily-sidenav"
+    fixedInViewport
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="(isHandset$ | async) === false"
+  >
+    <mat-toolbar class="readily-toolbar readily-toolbar--light"
+      >Readily</mat-toolbar
+    >
+    <mat-nav-list color="primary">
+      <a
+        class="readily-nav-item"
+        routerLink="dashboard"
+        mat-list-item
+        routerLinkActive="readily-nav-item--active"
+      >
+        <div class="d-flex">
+          <mat-icon class="readily-nav-item__icon me-1">dashboard</mat-icon>
+          <span> Dashboard</span>
+        </div>
+      </a>
+      <a
+        class="readily-nav-item"
+        routerLink="reading-list"
+        mat-list-item
+        routerLinkActive="readily-nav-item readily-nav-item--active"
+      >
+        Reading list
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar class="readily-toolbar readily-toolbar--light">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async"
+      >
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>shell-layout</span>
+    </mat-toolbar>
+    <readily-main-view></readily-main-view>
+  </mat-sidenav-content>
+</mat-sidenav-container>
