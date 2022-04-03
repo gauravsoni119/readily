@@ -3,7 +3,7 @@
 
 .mat-card {
   border-radius: global.$card-border-radius !important;
-  border: 1px solid colors.$card-border-color;
+  border: 1px solid colors.$gray-dark;
 
   &:not([class*=mat-elevation-z]) {
     box-shadow: none !important;

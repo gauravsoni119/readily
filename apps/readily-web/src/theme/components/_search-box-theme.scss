@@ -1,0 +1,50 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '../settings/global' as global;
+@use '../settings/colors' as colors;
+
+$readily-search-box-radius: global.$card-border-radius !default;
+$readily-search-box-color: colors.$body-background !default;
+$readily-search-box-icon-color: colors.$gray-dark !default;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $primary-palette: map.get($color-config, 'primary');
+  $typography-config: mat.define-typography-config();
+
+  .readily-search-box {
+    border-radius: $readily-search-box-radius;
+    overflow: hidden;
+    background-color: $readily-search-box-color;
+    &--focused {
+      outline: 2px solid $readily-search-box-icon-color;
+    }
+  }
+
+  .readily-search-box__icon {
+    color: $readily-search-box-icon-color;
+  }
+
+  .readily-search-box__input {
+    font-size: mat.font-size($typography-config, 'body-2');
+    padding: 0;
+    margin: 0;
+    color: currentColor;
+    border: none;
+    background: transparent;
+    width: 100%;
+    &:focus-visible {
+      outline: none;
+    }
+    &::placeholder {
+      font-size: mat.font-size($typography-config, 'body-2');
+    }
+  }
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+}

@@ -44,7 +44,7 @@ export interface ReadilyBookState {
     exclusiveShelves: ExclusiveShelves,
     others: Shelf[];
   };
-  all: unknown[];
+  all: Book[];
   totalPagesRead: number;
   loading: boolean;
   avgPageReading: number;

@@ -9,7 +9,8 @@ export class BooksStore extends ComponentStore<ReadilyBookState> {
     shelves,
     totalPagesRead,
     avgPageReading,
-    readBookSeries: shelves.others.map(shelf => ({ name: shelf.name, value: shelf.totalCount }))
+    readBookSeries: shelves.others.map(shelf => ({ name: shelf.name, value: shelf.totalCount })),
+    autoCompleteBooks: all.map(book => ({ id: book.bookId, name: book.title }))
   }));
   constructor() {
     super({
