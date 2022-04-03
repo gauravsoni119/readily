@@ -1,4 +1,4 @@
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container class="sidenav-container" *ngIf="vm$ | async as vm">
   <mat-sidenav
     #drawer
     class="readily-sidenav"
@@ -19,7 +19,7 @@
       >
         <div class="d-flex">
           <mat-icon class="readily-nav-item__icon me-1">dashboard</mat-icon>
-          <span> Dashboard</span>
+          <span>Dashboard</span>
         </div>
       </a>
       <a
@@ -28,12 +28,15 @@
         mat-list-item
         routerLinkActive="readily-nav-item readily-nav-item--active"
       >
-        Reading list
+        <div class="d-flex">
+          <mat-icon class="readily-nav-item__icon me-1">menu_book</mat-icon>
+          <span>Reading list</span>
+        </div>
       </a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar class="readily-toolbar readily-toolbar--light">
+    <mat-toolbar class="readily-toolbar readily-toolbar--light ps-5">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -43,7 +46,12 @@
       >
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>shell-layout</span>
+      <form class="w-50" [formGroup]="searchFormGroup">
+        <readily-search-box
+          formControlName="searchTerm"
+          [autoCompleteOptions]="vm.autoCompleteBooks"
+        ></readily-search-box>
+      </form>
     </mat-toolbar>
     <readily-main-view></readily-main-view>
   </mat-sidenav-content>

@@ -26,6 +26,7 @@ accent #f08059
 // Be sure that you only ever include this mixin once!
 $border-radius: 20px;
 @include mat.core();
+@include mat.strong-focus-indicators();
 
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
@@ -50,6 +51,7 @@ $readily-web-theme: mat.define-light-theme((
 @include components.rating-theme($readily-web-theme);
 @include components.icon-theme($readily-web-theme);
 @include components.side-nav-theme($readily-web-theme);
+@include components.search-box-theme($readily-web-theme);
 @include components.book-overview-theme();
 
 

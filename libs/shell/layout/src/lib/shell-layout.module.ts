@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { LayoutModule } from '@angular/cdk/layout';
@@ -9,6 +10,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MainViewComponent } from './main-view/main-view.component';
+import { UiModule } from '@readily/shared/ui';
 
 const uiModules = [
   LayoutModule,
@@ -17,11 +19,12 @@ const uiModules = [
   MatSidenavModule,
   MatIconModule,
   MatListModule,
-  MatButtonModule
+  MatButtonModule,
+  UiModule
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule, ...uiModules],
+  imports: [CommonModule, RouterModule, ReactiveFormsModule, ...uiModules],
   declarations: [
     LayoutComponent,
     MainViewComponent

@@ -1,0 +1,37 @@
+<div
+  class="readily-search-box d-flex align-items-center"
+  [ngClass]="{ 'readily-search-box--focused': focusChanged$ | async }"
+  (click)="onInputFocus()"
+>
+  <label class="cdk-visually-hidden" for="readily-search">Search a book</label>
+  <button mat-icon-button class="readily-search-box__icon">
+    <mat-icon>search</mat-icon>
+  </button>
+  <input
+    #search
+    class="readily-search-box__input"
+    id="readily-search"
+    type="text"
+    placeholder="Search a book"
+    autocomplete="off"
+    [formControl]="searchTerm"
+    [matAutocomplete]="auto"
+    (blur)="onInputBlur()"
+    (focus)="onInputFocus()"
+  />
+  <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected()">
+    <mat-option *ngFor="let option of autoCompleteOptions$ | async" [value]="option.name">
+      {{ option.name }}
+    </mat-option>
+  </mat-autocomplete>
+  <div>
+    <button
+      *ngIf="searchTerm.value.length"
+      mat-icon-button
+      class="readily-search-box__icon"
+      (click)="clearSearchTerm()"
+    >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
