@@ -1,4 +1,3 @@
-
 export interface Book {
   bookId?: string;
   title: string;
@@ -41,7 +40,7 @@ export interface Shelves {
 
 export interface ReadilyBookState {
   shelves: {
-    exclusiveShelves: ExclusiveShelves,
+    exclusiveShelves: ExclusiveShelves;
     others: Shelf[];
   };
   all: Book[];

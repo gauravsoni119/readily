@@ -9,8 +9,14 @@ export class BooksStore extends ComponentStore<ReadilyBookState> {
     shelves,
     totalPagesRead,
     avgPageReading,
-    readBookSeries: shelves.others.map(shelf => ({ name: shelf.name, value: shelf.totalCount })),
-    autoCompleteBooks: all.map(book => ({ id: book.bookId, name: book.title }))
+    readBookSeries: shelves.others.map((shelf) => ({
+      name: shelf.name,
+      value: shelf.totalCount,
+    })),
+    autoCompleteBooks: all.map((book) => ({
+      id: book.bookId,
+      name: book.title,
+    })),
   }));
   constructor() {
     super({
@@ -19,28 +25,43 @@ export class BooksStore extends ComponentStore<ReadilyBookState> {
       avgPageReading: 0,
       shelves: {
         exclusiveShelves: {
-          toRead: { name: 'toRead', totalCount: 0, books: [], otherShelves: [] },
-          currentlyReading: { name: 'currentlyReading', totalCount: 0, books: [], otherShelves: [] },
-          read: { name: 'read', totalCount: 0, books: [], otherShelves: [] }
+          toRead: {
+            name: 'toRead',
+            totalCount: 0,
+            books: [],
+            otherShelves: [],
+          },
+          currentlyReading: {
+            name: 'currentlyReading',
+            totalCount: 0,
+            books: [],
+            otherShelves: [],
+          },
+          read: { name: 'read', totalCount: 0, books: [], otherShelves: [] },
         },
         others: [],
       },
-      all: []
+      all: [],
     });
   }
+
+  readonly loadBooks = this.updater(
+    (
+      state,
+      newState: Pick<ReadilyBookState, 'all' | 'shelves' | 'totalPagesRead'>
+    ) => ({
+      ...state,
+      all: newState.all,
+      shelves: newState.shelves,
+      loading: false,
+      totalPagesRead: newState.totalPagesRead,
+      avgPageReading: this.calcAvgPageReading(newState.totalPagesRead),
+    })
+  );
 
   updateLoading() {
     this.patchState({ loading: true });
   }
-
-  readonly loadBooks = this.updater((state, newState: Pick<ReadilyBookState, 'all' | 'shelves' | 'totalPagesRead'>) => ({
-    ...state,
-    all: newState.all,
-    shelves: newState.shelves,
-    loading: false,
-    totalPagesRead: newState.totalPagesRead,
-    avgPageReading: this.calcAvgPageReading(newState.totalPagesRead)
-  }));
 
   private calcAvgPageReading(totalPagesRead: number) {
     return Math.ceil(totalPagesRead / 365);

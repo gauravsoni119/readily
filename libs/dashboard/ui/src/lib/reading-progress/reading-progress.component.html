@@ -1,19 +1,38 @@
 <mat-card>
   <mat-card-content>
     <div class="d-flex justify-content-between mb-3">
-      <h2 class="mb-0" i18n="Keep reading heading| Heading displayed for keep reading card">Keep Reading</h2>
-      <a mat-button color="primary" i18n="View All button text| Button text for view all readings">View All</a>
+      <h2
+        class="mb-0"
+        i18n="Keep reading heading| Heading displayed for keep reading card"
+      >
+        Keep Reading
+      </h2>
+      <a
+        mat-button
+        color="primary"
+        i18n="View All button text| Button text for view all readings"
+        >View All</a
+      >
     </div>
-    <div class="row mb-4" *ngFor="let book of books | slice: 0: 3">
+    <div class="row mb-4" *ngFor="let book of books | slice: 0:3">
       <div class="col-md-8 align-self-end">
         <div class="d-flex justify-content-between mb-2">
-          <strong class="mat-body-2 text-truncate">{{book.title}}</strong>
-          <strong class="mat-body-2">{{(book.progress ? book.progress / 100 : 0) | percent}}</strong>
+          <strong class="mat-body-2 text-truncate">{{ book.title }}</strong>
+          <strong class="mat-body-2">{{
+            (book.progress ? book.progress / 100 : 0) | percent
+          }}</strong>
         </div>
         <mat-progress-bar color="accent" mode="buffer"></mat-progress-bar>
       </div>
       <div class="col-md-4">
-        <button class="w-100" mat-flat-button color="primary" i18n="Read book| Read book button text">Read</button>
+        <button
+          class="w-100"
+          mat-flat-button
+          color="primary"
+          i18n="Read book| Read book button text"
+        >
+          Read
+        </button>
       </div>
     </div>
   </mat-card-content>

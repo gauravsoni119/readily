@@ -8,8 +8,8 @@ import { shellFeatureRoutes } from './shell-feature.routes';
   imports: [
     CommonModule,
     RouterModule.forRoot(shellFeatureRoutes),
-    ShellLayoutModule
+    ShellLayoutModule,
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class ShellFeatureModule {}

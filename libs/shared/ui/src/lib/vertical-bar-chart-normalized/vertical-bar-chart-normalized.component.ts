@@ -5,11 +5,9 @@ import { Color, ScaleType } from '@swimlane/ngx-charts';
   selector: 'readily-vertical-bar-chart-normalized',
   templateUrl: './vertical-bar-chart-normalized.component.html',
   styleUrls: ['./vertical-bar-chart-normalized.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-
 export class VerticalBarChartNormalizedComponent {
-
   @Input() view!: [number, number];
 
   @Input() showYAxis = true;
@@ -27,11 +25,10 @@ export class VerticalBarChartNormalizedComponent {
     name: 'test',
     domain: ['#f08059', '#f8dcd2'],
     selectable: false,
-    group: ScaleType.Linear
+    group: ScaleType.Linear,
   };
 
   onSelect(event: unknown) {
     console.log(event);
   }
-
 }

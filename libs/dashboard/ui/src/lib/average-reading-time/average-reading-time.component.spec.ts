@@ -8,9 +8,8 @@ describe('AverageReadingTimeComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AverageReadingTimeComponent ]
-    })
-    .compileComponents();
+      declarations: [AverageReadingTimeComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
