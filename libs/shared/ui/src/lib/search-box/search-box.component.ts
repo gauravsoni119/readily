@@ -1,25 +1,44 @@
-import { Component, Input, OnInit, OnDestroy, ChangeDetectionStrategy, ViewChild, ElementRef, forwardRef } from '@angular/core';
-import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { Book } from '@readily/shared/data-access/models';
-import { BehaviorSubject, merge, Observable, of, Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged, filter, map, takeUntil, tap, withLatestFrom } from 'rxjs/operators';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnDestroy,
+  ChangeDetectionStrategy,
+  ViewChild,
+  ElementRef,
+  forwardRef,
+} from '@angular/core';
+import {
+  ControlValueAccessor,
+  FormControl,
+  NG_VALUE_ACCESSOR,
+} from '@angular/forms';
+import { merge, Observable, of, Subject } from 'rxjs';
+import { distinctUntilChanged, map, takeUntil, tap } from 'rxjs/operators';
 import { AutoCompleteOption } from './search-box.model';
 
 @Component({
   selector: 'readily-search-box',
   templateUrl: './search-box.component.html',
-  styles: [`:host {display: block}`],
+  styles: [
+    `
+      :host {
+        display: block;
+      }
+    `,
+  ],
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
       useExisting: forwardRef(() => SearchBoxComponent),
-      multi: true
-    }
+      multi: true,
+    },
   ],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccessor {
-
+export class SearchBoxComponent
+  implements OnInit, OnDestroy, ControlValueAccessor
+{
   @Input()
   set autoCompleteOptions(options: AutoCompleteOption[]) {
     this._autoCompleteOptions = options ?? [];
@@ -41,20 +60,27 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
 
   focusChanged$ = new Subject<boolean>();
 
-  private onChange: (value: string) => any = () => { };
+  private onChange!: (value: string) => unknown;
 
-  private onTouched: () => any = () => { };
+  private onTouched!: () => unknown;
 
   private destroy$ = new Subject<void>();
 
   ngOnInit(): void {
-    this.autoCompleteOptions$ = merge(this.autoCompleteChange$, this.searchTerm.valueChanges).pipe(
+    this.autoCompleteOptions$ = merge(
+      this.autoCompleteChange$,
+      this.searchTerm.valueChanges
+    ).pipe(
       distinctUntilChanged(),
       map(() => this.searchTerm.value),
       tap((value: string) => value.length === 0 && this.clearSearchTerm()),
-      map((searchTerm) => this.autoCompleteOptions.filter(option => {
-        return this.normalizeValue(option.name).includes(searchTerm.toLowerCase());
-      })),
+      map((searchTerm) =>
+        this.autoCompleteOptions.filter((option) => {
+          return this.normalizeValue(option.name).includes(
+            searchTerm.toLowerCase()
+          );
+        })
+      ),
       takeUntil(this.destroy$)
     );
   }
@@ -98,5 +124,4 @@ export class SearchBoxComponent implements OnInit, OnDestroy, ControlValueAccess
   private normalizeValue(value: string): string {
     return value.toLowerCase();
   }
-
 }

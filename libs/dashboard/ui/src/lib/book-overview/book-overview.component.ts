@@ -5,11 +5,8 @@ import { Book } from '@readily/shared/data-access/models';
   selector: 'readily-book-overview',
   templateUrl: './book-overview.component.html',
   styleUrls: ['./book-overview.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class BookOverviewComponent {
-
   @Input() book!: Book;
-
-
 }

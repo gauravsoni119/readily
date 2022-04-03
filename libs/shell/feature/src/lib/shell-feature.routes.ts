@@ -11,7 +11,7 @@ export const shellFeatureRoutes: Route[] = [
         loadChildren: async () =>
           (await import('@readily/dashboard/feature')).DashboardFeatureModule,
       },
-      { path: '**', redirectTo: 'dashboard', pathMatch: 'full' }
+      { path: '**', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
 ];

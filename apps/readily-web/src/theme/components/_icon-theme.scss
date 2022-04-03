@@ -5,7 +5,6 @@
 $readily-icon-size: global.$spacer * 2 !default;
 
 @mixin theme($theme) {
-
   .mat-icon.readily-icon {
     &--md {
       width: $readily-icon-size;

@@ -20,15 +20,12 @@ const uiModules = [
   MatIconModule,
   MatListModule,
   MatButtonModule,
-  UiModule
+  UiModule,
 ];
 
 @NgModule({
   imports: [CommonModule, RouterModule, ReactiveFormsModule, ...uiModules],
-  declarations: [
-    LayoutComponent,
-    MainViewComponent
-  ],
-  exports: [LayoutComponent]
+  declarations: [LayoutComponent, MainViewComponent],
+  exports: [LayoutComponent],
 })
-export class ShellLayoutModule { }
+export class ShellLayoutModule {}

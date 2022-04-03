@@ -1,15 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'readily-main-view',
   templateUrl: './main-view.component.html',
-  styleUrls: ['./main-view.component.scss']
+  styleUrls: ['./main-view.component.scss'],
 })
-export class MainViewComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
-}
+export class MainViewComponent {}

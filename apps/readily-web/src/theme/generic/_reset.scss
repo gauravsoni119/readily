@@ -1,11 +1,15 @@
 // Import Bootstrap Reboot
-@import "~bootstrap/scss/root";
-@import "~bootstrap/scss/reboot";
+@import '~bootstrap/scss/root';
+@import '~bootstrap/scss/reboot';
 
 a {
-  &.mat-button, &.mat-raised-button, &.mat-fab, &.mat-mini-fab, &.mat-list-item {
+  &.mat-button,
+  &.mat-raised-button,
+  &.mat-fab,
+  &.mat-mini-fab,
+  &.mat-list-item {
     &:hover {
-      color: currentColor
+      color: currentColor;
     }
   }
 }

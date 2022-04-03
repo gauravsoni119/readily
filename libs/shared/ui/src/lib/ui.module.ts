@@ -29,4 +29,4 @@ const components = [
   declarations: [...components],
   exports: [...components],
 })
-export class UiModule { }
+export class UiModule {}

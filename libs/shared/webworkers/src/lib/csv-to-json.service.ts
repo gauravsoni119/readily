@@ -2,10 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class CsvToJsonWorkerService {
-
   private worker!: Worker;
   private message$$: Subject<unknown> = new Subject();
   message$: Observable<unknown> = this.message$$.asObservable();

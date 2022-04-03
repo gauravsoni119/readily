@@ -8,9 +8,8 @@ describe('VerticalBarChartNormalizedComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ VerticalBarChartNormalizedComponent ]
-    })
-    .compileComponents();
+      declarations: [VerticalBarChartNormalizedComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

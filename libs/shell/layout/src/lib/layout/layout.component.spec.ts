@@ -24,7 +24,7 @@ describe('LayoutComponent', () => {
         MatListModule,
         MatSidenavModule,
         MatToolbarModule,
-      ]
+      ],
     }).compileComponents();
   }));
 

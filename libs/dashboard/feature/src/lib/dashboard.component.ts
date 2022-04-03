@@ -1,5 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { Book, ReadilyBookState, Shelves } from '@readily/shared/data-access/models';
+import {
+  Book,
+  ReadilyBookState,
+  Shelves,
+} from '@readily/shared/data-access/models';
 import { BooksStore } from '@readily/shared/data-access/store';
 import { CsvToJsonWorkerService } from '@readily/shared/webworkers';
 
@@ -9,16 +13,18 @@ import { CsvToJsonWorkerService } from '@readily/shared/webworkers';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-
   vm$ = this.booksStore.vm$;
   constructor(
     private readonly csvToJsonWorkerService: CsvToJsonWorkerService,
-    private booksStore: BooksStore) { }
+    private booksStore: BooksStore
+  ) {}
 
   ngOnInit(): void {
-    this.csvToJsonWorkerService.message$.subscribe(data => {
+    this.csvToJsonWorkerService.message$.subscribe((data) => {
       console.log('data received', data);
-      this.booksStore.loadBooks(Object.assign({ loading: false }, data) as ReadilyBookState);
+      this.booksStore.loadBooks(
+        Object.assign({ loading: false }, data) as ReadilyBookState
+      );
     });
   }
 
@@ -28,11 +34,12 @@ export class DashboardComponent implements OnInit {
       if (files) {
         const reader = new FileReader();
         reader.onload = () => {
-          console.log(this.csvToJsonWorkerService.postMessage(reader.result as string));
+          console.log(
+            this.csvToJsonWorkerService.postMessage(reader.result as string)
+          );
         };
         reader.readAsText(files[0]);
       }
-
     }
   }
 }

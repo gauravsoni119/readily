@@ -24,7 +24,7 @@ const components = [
   PremiumCardComponent,
   ReadingProgressComponent,
   AverageReadingTimeComponent,
-  BooksToReadComponent
+  BooksToReadComponent,
 ];
 
 @NgModule({
@@ -32,4 +32,4 @@ const components = [
   declarations: [...components],
   exports: [...components],
 })
-export class DashboardUiModule { }
+export class DashboardUiModule {}
