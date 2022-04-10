@@ -47,4 +47,5 @@ export interface ReadilyBookState {
   totalPagesRead: number;
   loading: boolean;
   avgPageReading: number;
+  file: File | undefined;
 }
