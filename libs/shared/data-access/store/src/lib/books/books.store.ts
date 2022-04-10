@@ -4,8 +4,9 @@ import { ReadilyBookState } from '@readily/shared/data-access/models';
 
 @Injectable({ providedIn: 'root' })
 export class BooksStore extends ComponentStore<ReadilyBookState> {
-  vm$ = this.select(({ all, shelves, totalPagesRead, avgPageReading }) => ({
+  vm$ = this.select(({ all, shelves, totalPagesRead, avgPageReading, loading }) => ({
     all,
+    loading,
     shelves,
     totalPagesRead,
     avgPageReading,
@@ -14,13 +15,14 @@ export class BooksStore extends ComponentStore<ReadilyBookState> {
       value: shelf.totalCount,
     })),
     autoCompleteBooks: all.map((book) => ({
-      id: book.bookId,
+      id: book.bookId ?? book.ISBN,
       name: book.title,
     })),
   }));
   constructor() {
     super({
       loading: false,
+      file: undefined,
       totalPagesRead: 0,
       avgPageReading: 0,
       shelves: {
@@ -59,8 +61,8 @@ export class BooksStore extends ComponentStore<ReadilyBookState> {
     })
   );
 
-  updateLoading() {
-    this.patchState({ loading: true });
+  addFile(file: File) {
+    this.patchState({ loading: true, file });
   }
 
   private calcAvgPageReading(totalPagesRead: number) {

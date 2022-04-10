@@ -24,6 +24,7 @@
         "libs/shared/data-access/store/src/index.ts"
       ],
       "@readily/shared/ui": ["libs/shared/ui/src/index.ts"],
+      "@readily/shared/utils": ["libs/shared/utils/src/index.ts"],
       "@readily/shared/webworkers": ["libs/shared/webworkers/src/index.ts"],
       "@readily/shell/feature": ["libs/shell/feature/src/index.ts"],
       "@readily/shell/layout": ["libs/shell/layout/src/index.ts"]

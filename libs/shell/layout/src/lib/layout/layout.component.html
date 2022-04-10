@@ -1,58 +1,87 @@
-<mat-sidenav-container class="sidenav-container" *ngIf="vm$ | async as vm">
-  <mat-sidenav
-    #drawer
-    class="readily-sidenav"
-    fixedInViewport
-    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="(isHandset$ | async) === false"
+<ng-container *ngIf="vm$ | async as vm">
+  <mat-sidenav-container
+    class="sidenav-container"
+    *ngIf="vm.all.length; else fileUploaderTemplate"
   >
-    <mat-toolbar class="readily-toolbar readily-toolbar--light"
-      >Readily</mat-toolbar
+    <mat-sidenav
+      #drawer
+      class="readily-sidenav"
+      fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false"
     >
-    <mat-nav-list color="primary">
-      <a
-        class="readily-nav-item"
-        routerLink="dashboard"
-        mat-list-item
-        routerLinkActive="readily-nav-item--active"
+      <mat-toolbar class="readily-toolbar readily-toolbar--light"
+        >Readily</mat-toolbar
       >
-        <div class="d-flex">
-          <mat-icon class="readily-nav-item__icon me-1">dashboard</mat-icon>
-          <span>Dashboard</span>
-        </div>
-      </a>
-      <a
-        class="readily-nav-item"
-        routerLink="reading-list"
-        mat-list-item
-        routerLinkActive="readily-nav-item readily-nav-item--active"
-      >
-        <div class="d-flex">
-          <mat-icon class="readily-nav-item__icon me-1">menu_book</mat-icon>
-          <span>Reading list</span>
-        </div>
-      </a>
-    </mat-nav-list>
-  </mat-sidenav>
-  <mat-sidenav-content>
-    <mat-toolbar class="readily-toolbar readily-toolbar--light ps-5">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        *ngIf="isHandset$ | async"
-      >
-        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
-      </button>
-      <form class="w-50" [formGroup]="searchFormGroup">
-        <readily-search-box
-          formControlName="searchTerm"
-          [autoCompleteOptions]="vm.autoCompleteBooks"
-        ></readily-search-box>
-      </form>
-    </mat-toolbar>
-    <readily-main-view></readily-main-view>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+      <mat-nav-list color="primary">
+        <a
+          class="readily-nav-item"
+          routerLink="dashboard"
+          mat-list-item
+          routerLinkActive="readily-nav-item--active"
+        >
+          <div class="d-flex">
+            <mat-icon class="readily-nav-item__icon me-1">dashboard</mat-icon>
+            <span>Dashboard</span>
+          </div>
+        </a>
+        <a
+          class="readily-nav-item"
+          routerLink="reading-list"
+          mat-list-item
+          routerLinkActive="readily-nav-item readily-nav-item--active"
+        >
+          <div class="d-flex">
+            <mat-icon class="readily-nav-item__icon me-1">menu_book</mat-icon>
+            <span>Reading list</span>
+          </div>
+        </a>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar class="readily-toolbar readily-toolbar--light ps-5">
+        <button
+          type="button"
+          aria-label="Toggle sidenav"
+          mat-icon-button
+          (click)="drawer.toggle()"
+          *ngIf="isHandset$ | async"
+        >
+          <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+        </button>
+        <form class="w-50" [formGroup]="searchFormGroup">
+          <readily-search-box
+            formControlName="searchTerm"
+            [autoCompleteOptions]="vm.autoCompleteBooks"
+          ></readily-search-box>
+        </form>
+      </mat-toolbar>
+      <readily-main-view></readily-main-view>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  <ng-template #fileUploaderTemplate>
+    <div
+      class="container d-flex flex-column justify-content-center align-items-center h-100 w-75"
+    >
+      <h2 class="mb-1">Readily</h2>
+      <p class="mat-subheading-2">
+        Readily is a web app which will read
+        <a
+          class="text-decoration-none"
+          href="https://www.goodreads.com/"
+          target="_blank"
+          >good reads</a
+        >
+        data and generate dashboard for you. Good reads provide a way to export your data via csv files which
+        can be downloaded.
+      </p>
+      <div class="w-100">
+        <readily-file-uploader
+          [loading]="vm.loading"
+          (fileUpload)="onFileUpload($event)"
+        ></readily-file-uploader>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

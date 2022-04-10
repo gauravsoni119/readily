@@ -1,0 +1,35 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+@use '../settings/global' as global;
+@use '../settings/colors' as colors;
+
+$readily-drag-container-border-light: colors.$gray-light !default;
+$readily-drag-container-border-dark: colors.$gray-dark !default;
+$readily-drag-container-drag-over-scale: 1.02;
+
+@mixin color($theme) {
+  $color-config: mat.get-color-config($theme);
+  $primary-palette: map.get($color-config, 'primary');
+  $typography-config: mat.define-typography-config();
+
+  .readily-drag-container {
+    border: 2px dashed $readily-drag-container-border-light;
+    transition: transform 0.1s ease-out, border 0.2s ease-out;
+  }
+
+  .readily-drag-container--drag-over {
+    border: 2px dashed $readily-drag-container-border-dark;
+    transform: scale($readily-drag-container-drag-over-scale);
+  }
+
+  .readily-drag-container--drag-leave {
+    transform: scale(1);
+  }
+}
+
+@mixin theme($theme) {
+  $color-config: mat.get-color-config($theme);
+  @if $color-config != null {
+    @include color($theme);
+  }
+}

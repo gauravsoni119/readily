@@ -1,0 +1,60 @@
+<section class="m-auto">
+  <h2>Upload File</h2>
+  <ng-container *ngIf="!loading; else loadingTemplate">
+    <div
+      class="readily-drag-container d-flex flex-column align-items-center py-7"
+      readilyDropContainer
+      dragOverClasses="readily-drag-container--drag-over"
+      dragLeaveClasses="readily-drag-container--drag-leave"
+      (readilyDrop)="onDrop($event)"
+    >
+      <div>
+        <mat-icon class="material-icons-outlined">file_upload</mat-icon>
+      </div>
+      <div>Drag and Drop file here</div>
+      <p class="mat-caption">
+        Files supported: CSV (<a
+          href="/assets/shared/ui/sample_export.csv"
+          download
+          >Sample File</a
+        >)
+      </p>
+      <button
+        class="mb-2"
+        mat-flat-button
+        color="primary"
+        (click)="file.click()"
+      >
+        Choose File
+      </button>
+      <input
+        #file
+        type="file"
+        name="upload csv"
+        id="readily-file-uploader"
+        (change)="onUpload($event)"
+        hidden
+      />
+      <p class="mat-caption">
+        File will not be uploaded anywhere. It will be parsed in the browser.
+      </p>
+    </div>
+  </ng-container>
+</section>
+<ng-template #loadingTemplate>
+  <div
+    class="readily-drag-container readily-drag-container--drag-over readily-drag-container--drag-leave d-flex flex-column align-items-center py-7"
+  >
+    <div>
+      <mat-icon class="material-icons-outlined">pending_actions</mat-icon>
+    </div>
+    <div>Processing</div>
+    <span class="mat-caption d-flex mb-1">
+      {{fileControl.value?.name}}
+    </span>
+    <mat-progress-bar class="w-25 mb-1" mode="indeterminate"></mat-progress-bar>
+    <p class="mat-caption">
+      File will not be uploaded anywhere. It will be parsed in the browser.
+    </p>
+  </div>
+</ng-template>
