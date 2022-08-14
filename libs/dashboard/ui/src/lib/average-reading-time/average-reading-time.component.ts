@@ -21,13 +21,13 @@ export class AverageReadingTimeComponent {
     iconRegistry.addSvgIcon(
       'books-queue',
       domSanitizer.bypassSecurityTrustResourceUrl(
-        '/assets/dashboard/ui/img/books-queue.svg'
+        './assets/dashboard/ui/img/books-queue.svg'
       )
     );
     iconRegistry.addSvgIcon(
       'pages',
       domSanitizer.bypassSecurityTrustResourceUrl(
-        '/assets/dashboard/ui/img/pages.svg'
+        './assets/dashboard/ui/img/pages.svg'
       )
     );
   }
