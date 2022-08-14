@@ -9,7 +9,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/dashboard/feature"],
+          "outputs": [
+            "coverage/libs/dashboard/feature"
+          ],
           "options": {
             "jestConfig": "libs/dashboard/feature/jest.config.js",
             "passWithNoTests": true
@@ -23,7 +25,9 @@
               "libs/dashboard/feature/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
@@ -36,7 +40,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/dashboard/ui"],
+          "outputs": [
+            "coverage/libs/dashboard/ui"
+          ],
           "options": {
             "jestConfig": "libs/dashboard/ui/jest.config.js",
             "passWithNoTests": true
@@ -50,7 +56,9 @@
               "libs/dashboard/ui/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
@@ -84,7 +92,9 @@
                 "output": "assets/dashboard/ui"
               }
             ],
-            "styles": ["apps/readily-web/src/styles.scss"],
+            "styles": [
+              "apps/readily-web/src/styles.scss"
+            ],
             "scripts": [],
             "webWorkerTsConfig": "apps/readily-web/tsconfig.worker.json"
           },
@@ -150,15 +160,22 @@
               "apps/readily-web/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         },
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/apps/readily-web"],
+          "outputs": [
+            "coverage/apps/readily-web"
+          ],
           "options": {
             "jestConfig": "apps/readily-web/jest.config.js",
             "passWithNoTests": true
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       },
       "tags": []
@@ -184,13 +201,19 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/readily-web-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": [
+              "apps/readily-web-e2e/**/*.{js,ts}"
+            ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": [],
-      "implicitDependencies": ["readily-web"]
+      "implicitDependencies": [
+        "readily-web"
+      ]
     },
     "shared-data-access-models": {
       "projectType": "library",
@@ -200,7 +223,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/data-access/models"],
+          "outputs": [
+            "coverage/libs/shared/data-access/models"
+          ],
           "options": {
             "jestConfig": "libs/shared/data-access/models/jest.config.js",
             "passWithNoTests": true
@@ -214,7 +239,9 @@
               "libs/shared/data-access/models/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
@@ -227,7 +254,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/data-access/store"],
+          "outputs": [
+            "coverage/libs/shared/data-access/store"
+          ],
           "options": {
             "jestConfig": "libs/shared/data-access/store/jest.config.js",
             "passWithNoTests": true
@@ -253,7 +282,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/ui"],
+          "outputs": [
+            "coverage/libs/shared/ui"
+          ],
           "options": {
             "jestConfig": "libs/shared/ui/jest.config.js",
             "passWithNoTests": true
@@ -267,7 +298,9 @@
               "libs/shared/ui/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
@@ -280,7 +313,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/utils"],
+          "outputs": [
+            "coverage/libs/shared/utils"
+          ],
           "options": {
             "jestConfig": "libs/shared/utils/jest.config.js",
             "passWithNoTests": true
@@ -296,7 +331,9 @@
           }
         }
       },
-      "tags": ["utils"]
+      "tags": [
+        "utils"
+      ]
     },
     "shared-webworkers": {
       "projectType": "library",
@@ -306,7 +343,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shared/webworkers"],
+          "outputs": [
+            "coverage/libs/shared/webworkers"
+          ],
           "options": {
             "jestConfig": "libs/shared/webworkers/jest.config.js",
             "passWithNoTests": true
@@ -320,7 +359,9 @@
               "libs/shared/webworkers/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
@@ -333,7 +374,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shell/feature"],
+          "outputs": [
+            "coverage/libs/shell/feature"
+          ],
           "options": {
             "jestConfig": "libs/shell/feature/jest.config.js",
             "passWithNoTests": true
@@ -347,7 +390,9 @@
               "libs/shell/feature/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
@@ -360,7 +405,9 @@
       "architect": {
         "test": {
           "builder": "@nrwl/jest:jest",
-          "outputs": ["coverage/libs/shell/layout"],
+          "outputs": [
+            "coverage/libs/shell/layout"
+          ],
           "options": {
             "jestConfig": "libs/shell/layout/jest.config.js",
             "passWithNoTests": true
@@ -374,7 +421,9 @@
               "libs/shell/layout/src/**/*.html"
             ]
           },
-          "outputs": ["{options.outputFile}"]
+          "outputs": [
+            "{options.outputFile}"
+          ]
         }
       },
       "tags": []
